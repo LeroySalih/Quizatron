@@ -1,0 +1,19 @@
+.question {
+    width: 150px;
+    max-width: 150px;
+    min-height: 50px;
+    background-color: beige;
+    padding : 5px;
+    border: solid 1px black;
+    border-radius: 10px;
+    box-shadow: 1px 5px 8px silver;
+    margin : 5px;
+    overflow: hidden;
+}
+
+.questionContainer{
+    max-width: 150px;
+    display: flex;
+    flex-direction: row;
+
+}

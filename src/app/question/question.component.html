@@ -1,0 +1,41 @@
+
+<div *ngIf="id;else summary" >
+  <ng-container *ngIf="question; else noQuestion">
+  Displaying the full question for {{id}}
+  <div class="question"  (click)="OnClick()">
+      <div class="questionContainer" >
+           <ng-katex  [equation]="question.questionText"></ng-katex>
+      </div>
+      
+      <ng-container *ngFor="let answer of question.answers">
+          <div>
+              <input>
+          </div>
+      </ng-container>
+      
+
+      <div>
+        <button>Submit</button>
+      </div>
+      <div>
+        <a [routerLink]="['/questions']">Back</a>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+
+
+<ng-template #summary>
+  <ng-container *ngIf="question;else noQuestion">
+  <div class="question"  (click)="OnClick()">
+    <div class="questionContainer" >
+        <ng-katex  [equation]="question.questionText"></ng-katex>
+    </div>
+  </div>
+</ng-container>
+</ng-template>
+
+<ng-template #noQuestion>
+  No Question Found...
+</ng-template>

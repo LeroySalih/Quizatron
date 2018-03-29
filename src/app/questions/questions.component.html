@@ -1,0 +1,9 @@
+<div class="questions" >
+  <div>There are {{questions.length}} questions</div>
+  <ng-container *ngFor="let question of questions" >
+    <div>Question! {{question.questionText}}</div>  
+    <app-question  [question]="question"></app-question>
+  </ng-container>
+  
+</div>
+<button (click)="OnClick()">Add New</button>
