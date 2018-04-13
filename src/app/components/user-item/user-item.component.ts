@@ -9,9 +9,8 @@ export class UserItemComponent implements OnInit {
 
   name: string;
 
-  constructor() { 
-
-    this.name = "MathsMarksman"
+  constructor() {
+    this.name = 'MathsMarksman';
   }
 
   ngOnInit() {

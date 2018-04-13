@@ -1,0 +1,52 @@
+
+<div *ngIf="id;else summary" >
+  <ng-container *ngIf="question; else noQuestion">
+  Displaying the full question for {{id}}
+  <div class="question"  (click)="OnClick()">
+      <div class="questionContainer" >
+           <ng-katex  [equation]="question.questionText"></ng-katex>
+      </div>
+      
+      <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+        <div class="field">
+          <label>Answer</label>
+          <input type="text" id="answer1" placeHolder="Answer" name="answer1" ngModel>
+        </div>
+        <div class="field">
+            <label>Answer</label>
+            <input type="text" id="answer2" placeHolder="Answer" name="answer2" ngModel>
+          </div>
+        <button type="submit" class="ui button">Submit</button>
+      </form>
+      
+      <div>
+        <a [routerLink]="['/questions']">Back</a>
+      </div>
+      <div>
+        <span>{{status}}</span>
+      </div>
+      <div *ngIf="status=='incorrect'">
+        {{question.answers[0].correctValue}}, {{question.answers[1].correctValue}}
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+
+
+<ng-template #summary>
+  <ng-container *ngIf="question;else noQuestion">
+  <div class="question" >
+    <div class="questionContainer" >
+        <ng-katex  [equation]="question.questionText"></ng-katex>
+    </div>
+    <div>
+      <button (click)="OnClick()">&gt;&gt;</button>
+    </div>
+  </div>
+</ng-container>
+</ng-template>
+
+<ng-template #noQuestion>
+  No Question Found...
+</ng-template>
